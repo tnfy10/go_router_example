@@ -2,7 +2,6 @@
     package="xyz.myeoru.go_router_example">
    <application
         android:label="go_router_example"
-        android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
