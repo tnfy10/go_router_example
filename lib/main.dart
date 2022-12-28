@@ -1,30 +1,45 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:go_router_example/screen/1_screen.dart';
+import 'package:go_router_example/screen/2_screen.dart';
+import 'package:go_router_example/screen/3_screen.dart';
 import 'package:go_router_example/screen/home_screen.dart';
 
 void main() {
-  runApp(const _App());
+  runApp(_App());
 }
 
 class _App extends StatelessWidget {
-  const _App();
+  _App({super.key});
 
-  GoRouter get _router => GoRouter(
-        initialLocation: '/',
+  final GoRouter _router = GoRouter(
+    initialLocation: '/',
+    routes: [
+      GoRoute(
+        path: '/',
+        builder: (_, state) => const HomeScreen(),
         routes: [
           GoRoute(
-            path: '/',
-            builder: (_, state) => const HomeScreen(),
+            path: 'one',
+            builder: (_, state) => const OneScreen(),
             routes: [
               GoRoute(
-                path: 'one',
-                builder: (_, state) => const OneScreen(),
+                path: 'two',
+                builder: (_, state) => const TwoScreen(),
+                routes: [
+                  GoRoute(
+                    path: 'three',
+                    name: ThreeScreen.routeName,
+                    builder: (_, state) => const ThreeScreen(),
+                  ),
+                ],
               ),
             ],
           ),
         ],
-      );
+      ),
+    ],
+  );
 
   @override
   Widget build(BuildContext context) {
