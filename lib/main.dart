@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:go_router_example/screen/1_screen.dart';
 import 'package:go_router_example/screen/home_screen.dart';
 
 void main() {
@@ -15,7 +16,13 @@ class _App extends StatelessWidget {
           GoRoute(
             path: '/',
             builder: (_, state) => const HomeScreen(),
-          )
+            routes: [
+              GoRoute(
+                path: 'one',
+                builder: (_, state) => const OneScreen(),
+              ),
+            ],
+          ),
         ],
       );
 
