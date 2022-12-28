@@ -24,6 +24,12 @@ class HomeScreen extends StatelessWidget {
             },
             child: const Text('Screen Three (GO)'),
           ),
+          ElevatedButton(
+            onPressed: () {
+              context.go('/error');
+            },
+            child: const Text('Error Screen (GO)'),
+          ),
         ],
       ),
     );
